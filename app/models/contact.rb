@@ -4,16 +4,11 @@ class Contact < Tableless
 
   attr_accessor :id
 
-  #include ActiveAttr::Model
-
-  #attribute :name
-  #attribute :email
-  #attribute :handle
-
   column :name, :string
   column :email, :string
   column :handle, :string
 
+  attr_accessible :name, :email, :handle, :foos_attributes
   def id
     @id ||= 1
   end
