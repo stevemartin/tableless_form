@@ -15,17 +15,13 @@
   .field
     = f.label :handle
     = f.text_field :handle
-  - @index = 0
-  - @foos.each do |foo|
-    = p foo.object_id
-    = f.fields_for foo, :child_index => @index do |fo|
-      %fieldset
-        %legend
-          Foo
-        = fo.label :bar
-        .field
-          = fo.text_field :bar
-    - @index += 1
+  = f.fields_for :foos do |foo|
+    %fieldset
+      %legend
+        Foo's
+      = f.label :bar
+      .field
+        = foo.text_field :bar
 
   .actions
     = f.submit 'Save'
